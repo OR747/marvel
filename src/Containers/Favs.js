@@ -1,7 +1,7 @@
 import React from "react";
 
-const Characteres = () => {
+const Favs = () => {
   return <div>bonjour</div>;
 };
 
-export default Characteres;
+export default Favs;
