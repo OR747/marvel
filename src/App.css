@@ -1,1 +1,36 @@
-/* Other rules */
+.header {
+  width: 1440px;
+  height: 80px;
+  border: red solid 2px;
+  font-size: 18px;
+  background-color: #ffffff;
+  padding-left: 90px;
+  justify-content: space-around;
+  display: flex;
+  margin-bottom: 30px;
+  margin-left: 40px;
+}
+.header img {
+  max-height: 100px;
+  object-fit: contain;
+}
+.header ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: unset;
+  padding: unset;
+}
+.header li {
+  border: red solid 2px;
+
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  letter-spacing: -0.4;
+  transition: 0.3s;
+  font-family: "Oswald", sans-serif;
+}

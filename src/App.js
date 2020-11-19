@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path="/characters">
+        <Route path="/characters/:id">
           <Characters />
         </Route>
         <Route path="/comics">
@@ -25,7 +25,7 @@ function App() {
         <Route path="/favs">
           <Favs />
         </Route>
-        <Route path="/">
+        <Route path="/characters">
           <Home />
         </Route>
       </Switch>
