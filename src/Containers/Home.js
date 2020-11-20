@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
+import Base from "../Components/Base";
 import axios from "axios";
 
 const Home = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState("");
 
   const [isLoading, setIsLoading] = useState(true);
+
   const fetchData = async () => {
     try {
       const response = await axios.get(
@@ -27,18 +29,24 @@ const Home = () => {
     <span>En cours de chargement... </span>
   ) : (
     <div>
-      <div>toto</div>
-      <div className="bloc1">
-        {data.data.results.map((item, index) => {
-          return (
-            <div key={index}>
-              <p>{item.thumbnail}</p>
-              <p>{item.name}</p>
-              <p>{item.description}</p>
-            </div>
-          );
-        })}
+      <div className="titre">
+        <h1>DISCOVER OUR CHARACTERS</h1>
       </div>
+      <Link to={`/characters/${(<Base data={data} />)}`}>
+        <div className="bloc1">
+          {data.data.results.map((item, index) => {
+            return (
+              <div>
+                <img
+                  src={item.thumbnail.path + "." + item.thumbnail.extension}
+                  alt=""
+                />
+                <p>{item.name}</p>
+              </div>
+            );
+          })}
+        </div>
+      </Link>
     </div>
   );
 };

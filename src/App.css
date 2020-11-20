@@ -1,17 +1,19 @@
 .header {
   width: 1440px;
-  height: 80px;
+  height: 120px;
   border: red solid 2px;
   font-size: 18px;
   background-color: #ffffff;
   padding-left: 90px;
   justify-content: space-around;
   display: flex;
-  margin-bottom: 30px;
-  margin-left: 40px;
+
+  margin-top: 45px;
+  margin-right: 110px;
+  background-color: #ee091d;
 }
 .header img {
-  max-height: 100px;
+  max-height: 120px;
   object-fit: contain;
 }
 .header ul {
@@ -22,9 +24,12 @@
   list-style-type: none;
   margin: unset;
   padding: unset;
+  text-decoration: none;
+  margin-top: 45px;
+  margin-right: 150px;
 }
 .header li {
-  border: red solid 2px;
+  /*border: red solid 2px;*/
 
   padding: 0 20px;
   text-align: center;
@@ -32,5 +37,40 @@
   font-size: 24px;
   letter-spacing: -0.4;
   transition: 0.3s;
-  font-family: "Oswald", sans-serif;
+  font-family: Arial;
+}
+.login {
+  margin-top: 45px;
+}
+.login button {
+  height: 46px;
+  width: 135px;
+
+  background: #ed0a1d;
+  font: bold 23px Arial;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/*Home*/
+
+.bloc1 {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  display: flex;
+  border: black solid 2px;
+  width: 1200px;
+  margin-left: 175px;
+}
+
+.bloc1 img {
+  height: 340px;
+  width: 260px;
+}
+h1 {
+  font-size: 50px;
+  margin-left: 400px;
+  font-weight: bold;
 }
