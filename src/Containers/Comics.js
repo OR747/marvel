@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SearchTitle from "../Components/SearchTitle";
+import Pagination from "../Components/Pagination";
 
-const Comics = () => {
+const Comics = ({ offset, setOffset, page, setPage }) => {
   const [data, setData] = useState("");
 
   const [isLoading, setIsLoading] = useState(true);
@@ -27,22 +29,32 @@ const Comics = () => {
   return isLoading ? (
     <span>En cours de chargement... </span>
   ) : (
-    <div className="bloc2">
-      {data.data.results.map((item, index) => {
-        return (
-          <div>
-            <div>key={index}</div>
-            <img
-              src={item.thumbnail.path + "." + item.thumbnail.extension}
-              alt=""
-            />
+    <div>
+      <div className="titre">
+        <h1>DISCOVER OUR COMICS</h1>
+      </div>
+      <SearchTitle data={data} setData={setData} offset={offset}></SearchTitle>
 
-            <p>{item.title}</p>
-            <p>{item.description}</p>
-            <p>{item.variants}</p>
-          </div>
-        );
-      })}
+      <div className="bloc2">
+        {data.data.results.map((item, index) => {
+          return (
+            <div>
+              <img
+                src={item.thumbnail.path + "." + item.thumbnail.extension}
+                alt=""
+              />
+              <p>{item.title}</p>
+            </div>
+          );
+        })}
+      </div>
+      <Pagination
+        offset={offset}
+        setOffset={setOffset}
+        data={data}
+        page={page}
+        setPage={setPage}
+      ></Pagination>
     </div>
   );
 };

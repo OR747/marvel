@@ -1,17 +1,17 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Base = ({ data }) => {
   return (
-    <div>
-      <div className="bloc0">
-        {data.data.results.map((item, index) => {
+    <div className="bloc0">
+      <Link
+        to={data.data.results.map((item, index) => {
           return (
             <div key={index}>
               <p>{item.id}</p>
             </div>
           );
         })}
-      </div>
+      ></Link>
     </div>
   );
 };
