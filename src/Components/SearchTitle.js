@@ -18,7 +18,7 @@ const SearchTitle = ({ setData, offset }) => {
               str += event.target.value;
               if (str.length > 2) {
                 const response = await axios.get(
-                  `https://marvel-backend1.herokuapp.com/comicstitle=${event.target.value}&offset=${offset}`
+                  `https://marvel-backend1.herokuapp.com/comics?title=${event.target.value}&offset=${offset}`
                 );
                 // console.log(response.data);
                 setData(response.data);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-//import { Link } from "react-router-dom";
-import Base from "../Components/Base";
+import { Link } from "react-router-dom";
+//import Base from "../Components/Base";
 import axios from "axios";
 import SearchName from "../Components/SearchName";
 import Pagination from "../Components/Pagination";
@@ -10,19 +10,20 @@ const Home = ({ offset, setOffset, name, setName, page, setPage }) => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        "https://marvel-backend1.herokuapp.com/characters"
-      );
-      console.log(response.data);
-      setData(response.data);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://marvel-backend1.herokuapp.com/characters?&offset=${offset}`
+        );
+        console.log(response.data);
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
     console.log("Rentre dans le useEffect");
     fetchData();
   }, [offset, name, setData, setIsLoading]);
@@ -43,20 +44,28 @@ const Home = ({ offset, setOffset, name, setName, page, setPage }) => {
       ></SearchName>
 
       <div className="bloc1">
-        {data.data.results.map((item, index) => {
+        {data.data.results.map((element, index) => {
           return (
-            <div>
-              <img
-                src={item.thumbnail.path + "." + item.thumbnail.extension}
-                alt=""
-              />
-              <p>{item.name}</p>
-            </div>
+            <>
+              <Link
+                to={"/characters/" + element.id + "/comics"}
+                key={index}
+                style={{ textDecoration: "none" }}
+              >
+                <img
+                  src={
+                    element.thumbnail.path + "." + element.thumbnail.extension
+                  }
+                  alt="Marvel characters"
+                />
+
+                <h1>{element.name}</h1>
+
+                <p>{element.description}</p>
+              </Link>
+            </>
           );
         })}
-      </div>
-      <div>
-        <Base data={data} />
       </div>
       <Pagination
         offset={offset}
