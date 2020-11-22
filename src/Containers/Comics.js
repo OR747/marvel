@@ -33,7 +33,13 @@ const Comics = ({ offset, setOffset, page, setPage }) => {
       <div className="titre">
         <h1>DISCOVER OUR COMICS</h1>
       </div>
-      <SearchTitle data={data} setData={setData} offset={offset}></SearchTitle>
+      <div className="search">
+        <SearchTitle
+          data={data}
+          setData={setData}
+          offset={offset}
+        ></SearchTitle>
+      </div>
 
       <div className="bloc2">
         {data.data.results.map((item, index) => {
@@ -43,7 +49,9 @@ const Comics = ({ offset, setOffset, page, setPage }) => {
                 src={item.thumbnail.path + "." + item.thumbnail.extension}
                 alt=""
               />
-              <p>{item.title}</p>
+              <div className="titre">{item.title}</div>
+
+              <p>{item.description}</p>
             </div>
           );
         })}

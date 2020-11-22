@@ -1,11 +1,6 @@
 import React from "react";
 
 const Pagination = ({ data, offset, setOffset, page, setPage }) => {
-  const pageNumber = [];
-  for (let i = 1; i <= Math.ceil(data.data.total / offset); i++) {
-    console.log(data.data.total);
-    pageNumber.push(i);
-  }
   return (
     <div>
       <div className="pagination">

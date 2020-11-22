@@ -1,13 +1,19 @@
+body {
+  background-color: #eaedee;
+  font-family: "Montserrat", sans-serif;
+  /*background-image: url("./Containers/img/thumb-350-327321.jpg");*/
+}
+
 .header {
   width: 1440px;
   height: 120px;
-  border: red solid 2px;
+  /*border: red solid 2px;*/
   font-size: 18px;
   background-color: #ffffff;
   padding-left: 90px;
   justify-content: space-around;
   display: flex;
-
+  border-radius: 10px;
   margin-top: 45px;
   margin-right: 110px;
   background-color: #ee091d;
@@ -39,6 +45,9 @@
   transition: 0.3s;
   font-family: Arial;
 }
+.ul .li {
+  text-decoration: none;
+}
 .login {
   margin-top: 45px;
 }
@@ -60,28 +69,46 @@
   justify-content: space-around;
   flex-wrap: wrap;
   display: flex;
-  border: black solid 2px;
+  /*border: black solid 2px;*/
   width: 1200px;
   margin-left: 175px;
+  margin-top: 50px;
 }
 
 .bloc1 img {
   height: 340px;
   width: 260px;
+  border-radius: 5px;
 }
 h1 {
   font-size: 50px;
   margin-left: 400px;
   font-weight: bold;
+  /*border: solid;*/
+  height: 100px;
+  width: 800px;
 }
+.search {
+  font-size: 50px;
 
+  font-weight: bold;
+  /*border: solid;*/
+  height: 100px;
+  width: 650px;
+  margin-top: 30px;
+}
+.search input {
+  height: 50px;
+  width: 250px;
+  margin-left: 650px;
+}
 /*Comics*/
 
 .bloc2 {
   justify-content: space-around;
   flex-wrap: wrap;
   display: flex;
-  border: black solid 2px;
+  /*border: black solid 2px;*/
   width: 1200px;
   margin-left: 175px;
   margin-top: 30px;
@@ -90,9 +117,26 @@ h1 {
 .bloc2 img {
   height: 340px;
   width: 260px;
+  border-radius: 5px;
 }
 .bloc2 p {
-  height: 69px;
-  border: red solid 2px;
+  height: 280px;
+  /*border: red solid 2px;*/
   width: 260px;
+}
+.titre {
+  height: 69px;
+  /*border: red solid 2px;*/
+  width: 260px;
+}
+
+/*Pagination*/
+
+.pagination {
+  display: flex;
+  justify-content: space-around;
+}
+.page-button {
+  height: 50px;
+  background-color: beige;
 }

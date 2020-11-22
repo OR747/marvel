@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-//import Base from "../Components/Base";
+
 import axios from "axios";
 import SearchName from "../Components/SearchName";
 import Pagination from "../Components/Pagination";
@@ -14,7 +14,7 @@ const Home = ({ offset, setOffset, name, setName, page, setPage }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://marvel-backend1.herokuapp.com/characters?&offset=${offset}`
+          "https://marvel-backend1.herokuapp.com/characters"
         );
         console.log(response.data);
         setData(response.data);
@@ -35,13 +35,15 @@ const Home = ({ offset, setOffset, name, setName, page, setPage }) => {
       <div className="titre">
         <h1>DISCOVER OUR CHARACTERS</h1>
       </div>
-      <SearchName
-        name={name}
-        setName={setName}
-        data={data}
-        setData={setData}
-        offset={offset}
-      ></SearchName>
+      <div className="search">
+        <SearchName
+          name={name}
+          setName={setName}
+          data={data}
+          setData={setData}
+          offset={offset}
+        ></SearchName>
+      </div>
 
       <div className="bloc1">
         {data.data.results.map((element, index) => {
@@ -59,9 +61,7 @@ const Home = ({ offset, setOffset, name, setName, page, setPage }) => {
                   alt="Marvel characters"
                 />
 
-                <h1>{element.name}</h1>
-
-                <p>{element.description}</p>
+                <h2>{element.name}</h2>
               </Link>
             </>
           );
